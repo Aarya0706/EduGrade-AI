@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VClass</title>
+    <title>GradeSync</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
 
@@ -238,8 +238,8 @@ body.dark-mode .submission-info p {
             <a class="navbar-brand d-flex align-items-center" href="{{ url_for('dashboard') if 'user_id' in session else url_for('index') }}">
                 <img class="m-header__image m-header__image--pc me-2" 
                      src="{{ url_for('static', filename='images/final.png') }}"
-                     alt="VClass" style="height: 40px;">
-                <span class="navbar-title">VClass</span>
+                     alt="GradeSync" style="height: 40px;">
+                <span class="navbar-title">GradeSync</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
