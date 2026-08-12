@@ -1,6 +1,7 @@
 # EduGrade-AI
 
 [![Watch the video](https://img.shields.io/badge/Demo-Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=JWd_7I_x4Fc)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=render)](https://edugrade-ai-d757.onrender.com/)
 [![Flask](https://img.shields.io/badge/Backend-Flask-black?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/)
 [![Gemini](https://img.shields.io/badge/LLM-Gemini-blue?style=for-the-badge&logo=googlegemini)](https://ai.google.dev/)
 
@@ -99,7 +100,7 @@ The app will be available at `http://localhost:5000`.
 
 ## Demo
 
-A walkthrough video is linked at the top of this README. *(No public live deployment currently — the app runs locally per the steps above.)*
+A walkthrough video is linked at the top of this README. Try the live app here: **[edugrade-ai-d757.onrender.com](https://edugrade-ai-d757.onrender.com/)**
 
 ## Team
 
