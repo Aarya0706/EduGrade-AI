@@ -27,9 +27,7 @@ GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 
 
 if not GEMINI_API_KEY:
-    logger.warning("GEMINI_API_KEY not found in environment. Using fallback method.")
-    # Fallback for development - REMOVE IN PRODUCTION
-    GEMINI_API_KEY = "AIzaSyAXzQoCud0W3dooiXhliP0FdCGjjGj1yLo"
+    raise RuntimeError("GEMINI_API_KEY environment variable is not set.")
 
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-flash")
