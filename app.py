@@ -25,6 +25,23 @@ DOCUMENT_AI_LOCATION = os.environ.get('DOCUMENT_AI_LOCATION', 'replaceWIthYourSt
 DOCUMENT_AI_PROCESSOR_ID = os.environ.get('DOCUMENT_AI_PROCESSOR_ID', 'replaceWithYourId')
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 
+# Google service-account credentials for Document AI.
+# Locally this is usually a JSON file on disk pointed to by GOOGLE_APPLICATION_CREDENTIALS.
+# On Render there's no persistent file to point to, so instead paste the *entire contents*
+# of your service-account JSON key into an env var called GOOGLE_APPLICATION_CREDENTIALS_JSON,
+# and this writes it to a temp file at startup and points the Google client at that file.
+_google_creds_json = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON')
+if _google_creds_json:
+    _creds_path = '/tmp/gcp-credentials.json'
+    with open(_creds_path, 'w') as _f:
+        _f.write(_google_creds_json)
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = _creds_path
+    logger.info("Loaded Google credentials from GOOGLE_APPLICATION_CREDENTIALS_JSON env var.")
+elif not os.environ.get('GOOGLE_APPLICATION_CREDENTIALS'):
+    logger.warning(
+        "No Google credentials found. Set GOOGLE_APPLICATION_CREDENTIALS_JSON (paste full "
+        "service-account JSON) on Render, or GOOGLE_APPLICATION_CREDENTIALS to a local file path."
+    )
 
 if not GEMINI_API_KEY:
     raise RuntimeError("GEMINI_API_KEY environment variable is not set.")
